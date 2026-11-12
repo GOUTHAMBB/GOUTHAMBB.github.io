@@ -1,852 +1,845 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Goutham B Bhandari - AI & VLSI Engineer">
-    <title>Goutham B Bhandari | AI & VLSI Engineer</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: '#020412',
-                        primary: '#0ea5e9',   /* Sky Blue */
-                        secondary: '#8b5cf6', /* Violet */
-                        surface: 'rgba(15, 23, 42, 0.6)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <meta name="description" content="Goutham B Bhandari — Product Analyst at MiQ, AI & VLSI Engineer, RVCE Bengaluru Rank 5 Graduate, IEEE & IGI Global Author.">
+    <title>Goutham B Bhandari — Data, AI &amp; VLSI Engineer</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- Core Styles --- */
-        body {
-            background-color: #020412;
-            color: #cbd5e1;
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism Utility */
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(14, 165, 233, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .glass-panel:hover {
-            border-color: rgba(14, 165, 233, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.3);
-        }
-
-        /* Scroll Progress Bar */
-        #scroll-progress {
-            background: linear-gradient(to right, #0ea5e9, #8b5cf6);
-            transform-origin: 0%;
-        }
-
-        /* Horizontal Scroll Snap */
-        .horizontal-scroll-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 1.5rem;
-            padding-bottom: 2rem;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-        .horizontal-scroll-container::-webkit-scrollbar {
-            display: none;
-        }
-        .scroll-item {
-            flex: 0 0 auto;
-            scroll-snap-align: center;
-            width: 85vw;
-        }
-        @media (min-width: 768px) {
-            .scroll-item {
-                width: 400px;
-            }
-        }
-
-        /* Timeline Connector */
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            top: 0; bottom: 0; left: 50%;
-            width: 2px;
-            background: rgba(14, 165, 233, 0.2);
-            transform: translateX(-50%);
-        }
-        @media (max-width: 768px) {
-            .timeline-line::before { left: 20px; }
-        }
-
-        /* Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body>
 
-<body class="antialiased selection:bg-primary selection:text-white">
-
-    <canvas id="bg-canvas" class="fixed top-0 left-0 w-full h-full -z-10 opacity-40"></canvas>
-    
-    <div class="fixed top-0 left-0 w-full h-1 z-[100] bg-gray-900">
-        <div id="scroll-progress" class="h-full w-full scale-x-0"></div>
+    <div class="scroll-progress-track" aria-hidden="true">
+        <div id="scroll-progress" class="scroll-progress-bar"></div>
     </div>
 
-    <header class="fixed w-full top-0 z-50 glass-panel border-t-0 border-x-0 rounded-none">
-        <nav class="container mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="#home" class="text-xl font-bold tracking-tighter text-white hover:text-primary transition-colors">
-                Goutham<span class="text-primary">.dev</span>
+    <header class="site-header">
+        <div class="container nav-inner">
+            <a href="#home" class="brand" aria-label="Goutham B Bhandari Home">
+                <span class="brand-monogram">G</span>
+                <span class="brand-text">Goutham B Bhandari</span>
             </a>
 
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
-                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#awards" class="hover:text-white transition-colors">Awards</a>
-                <a href="#certifications" class="hover:text-white transition-colors">Certs</a>
-                <a href="#contact" class="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white transition-all">Contact</a>
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="#about">About</a>
+                <a href="#skills">Expertise</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#recognition">Publications &amp; Awards</a>
+                <a href="#certifications">Credentials</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle Light and Dark Theme" title="Switch Theme">
+                    <svg id="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="#contact" class="nav-cta">Connect</a>
+                <button id="mobile-menu-btn" class="mobile-menu-btn" type="button" aria-label="Open Navigation Menu" aria-expanded="false">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="4" y1="7" x2="20" y2="7"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="17" x2="20" y2="17"></line>
+                    </svg>
+                </button>
             </div>
-
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2" aria-label="Toggle Menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </nav>
-
-        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-[#020412]/95 backdrop-blur-xl border-b border-white/10 p-4 md:hidden flex-col space-y-4 shadow-2xl">
-            <a href="#about" class="block p-2 hover:bg-white/5 rounded">About</a>
-            <a href="#skills" class="block p-2 hover:bg-white/5 rounded">Skills</a>
-            <a href="#experience" class="block p-2 hover:bg-white/5 rounded">Experience</a>
-            <a href="#projects" class="block p-2 hover:bg-white/5 rounded">Projects</a>
-            <a href="#awards" class="block p-2 hover:bg-white/5 rounded">Awards</a>
-            <a href="#certifications" class="block p-2 hover:bg-white/5 rounded">Certifications</a>
-            <a href="#contact" class="block p-2 text-primary font-bold">Contact Me</a>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 md:px-6 pt-24 pb-12">
-
-        <section id="home" class="min-h-[90vh] flex flex-col justify-center items-center text-center reveal">
-            <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full border border-primary/20">
-                Available for Hire
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-                Engineering <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Intelligent</span><br>
-                Data & Embedded Systems.
-            </h1>
-            <p class="max-w-2xl text-lg text-slate-400 mb-10 leading-relaxed">
-                I am <strong class="text-white">Goutham B Bhandari</strong>. I combine a strong foundation in VLSI architecture with advanced Data Engineering to build robust, high-performance solutions.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#projects" class="px-8 py-3 rounded-full bg-primary text-white font-bold hover:bg-sky-400 transition shadow-lg shadow-primary/25">View Projects</a>
-                <a href="#contact" class="px-8 py-3 rounded-full bg-transparent border border-slate-600 hover:border-white text-white font-medium transition">Contact Me</a>
-            </div>
-        </section>
-
-        <section id="skills" class="py-20 reveal">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-16 text-center">Technical Arsenal</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-panel p-8 rounded-2xl">
-                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 text-primary">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">AI & Machine Learning</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">Python</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">TensorFlow</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">PyTorch</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">OpenCV</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">CNNs</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl">
-                    <div class="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-6 text-secondary">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">VLSI & Hardware</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">Verilog</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">Cadence</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">PCB Design</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">LTSpice</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">STA</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl">
-                    <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-6 text-emerald-400">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Data & DevOps</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">SQL</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">PySpark</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">Jenkins</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">Git</span>
-                        <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">SonarQube</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="py-20 reveal">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Experience</h2>
-            
-            <div class="relative timeline-line max-w-3xl mx-auto pl-8 md:pl-0">
-                
-                <div class="mb-12 relative md:w-1/2 md:ml-auto md:pl-10 group">
-                    <div class="absolute left-[-41px] md:left-[-6px] top-6 w-5 h-5 rounded-full border-4 border-[#020412] bg-primary shadow-[0_0_10px_rgba(14,165,233,0.5)] z-10"></div>
-                    <div class="glass-panel p-6 rounded-xl">
-                        <span class="text-xs font-bold text-primary tracking-wide uppercase">Jan 2025 - Present</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Product Analyst</h3>
-                        <p class="text-slate-400 text-sm mb-4">MiQ</p>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                            Leading healthcare measurement workflows. Migrated systems to DevOps using Jenkins, SonarQube, and Pytest. Mastering PySpark and Programmatic advertising ecosystem (TTD, DV360).
-                        </p>
-                        <a href="images/MIQ Internship Completion Certificate.pdf" target="_blank" class="text-xs font-bold text-primary hover:text-white flex items-center gap-1 transition-colors">
-                            View Certificate <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="mb-12 relative md:w-1/2 md:mr-auto md:pr-10 md:text-right group">
-                    <div class="absolute left-[-41px] md:left-auto md:right-[-6px] top-6 w-5 h-5 rounded-full border-4 border-[#020412] bg-secondary shadow-[0_0_10px_rgba(139,92,246,0.5)] z-10"></div>
-                    <div class="glass-panel p-6 rounded-xl">
-                        <span class="text-xs font-bold text-secondary tracking-wide uppercase">Mar 2023 - Mar 2024</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Project Intern</h3>
-                        <p class="text-slate-400 text-sm mb-4">Nokia</p>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                            Engineered traffic capacity prediction models using BTS data. Implemented LSTM/RNN Deep Learning models and optimized feature engineering pipelines.
-                        </p>
-                        <a href="images/Nokia internship completion certificate.pdf" target="_blank" class="text-xs font-bold text-secondary hover:text-white inline-flex items-center gap-1 transition-colors md:flex-row-reverse">
-                            View Certificate <svg class="w-3 h-3 transform md:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="mb-12 relative md:w-1/2 md:ml-auto md:pl-10 group">
-                    <div class="absolute left-[-41px] md:left-[-6px] top-6 w-5 h-5 rounded-full border-4 border-[#020412] bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)] z-10"></div>
-                    <div class="glass-panel p-6 rounded-xl">
-                        <span class="text-xs font-bold text-emerald-400 tracking-wide uppercase">Nov 2023 - Dec 2023</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Research Intern</h3>
-                        <p class="text-slate-400 text-sm mb-4">DRDO, Govt. of India</p>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                            Led team in RFID/LoRa communication for location detection systems. Implemented Kalman filtering for real-time tracking accuracy.
-                        </p>
-                        <a href="images/DRDO Internship Completion Certificate.jfif" target="_blank" class="text-xs font-bold text-emerald-400 hover:text-white flex items-center gap-1 transition-colors">
-                            View Certificate <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="mb-12 relative md:w-1/2 md:mr-auto md:pr-10 md:text-right group">
-                    <div class="absolute left-[-41px] md:left-auto md:right-[-6px] top-6 w-5 h-5 rounded-full border-4 border-[#020412] bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] z-10"></div>
-                    <div class="glass-panel p-6 rounded-xl border-t border-white/20">
-                        <span class="text-xs font-bold text-white tracking-wide uppercase">2021 - 2025</span>
-                        <h3 class="text-xl font-bold text-white mt-1">B.E. Electronics & Communication</h3>
-                        <p class="text-slate-400 text-sm mb-4">RV College of Engineering</p>
-                        <div class="text-slate-300 text-sm leading-relaxed mb-4 space-y-2">
-                            <p><strong>CGPA:</strong> 9.46 / 10 <span class="text-primary text-xs ml-1">(Rank 5 in Batch)</span></p>
-                            <p><strong>GATE 2025:</strong> Qualified (Rank 5406)</p>
-                            <p class="text-xs text-slate-400">Core Focus: Digital Logic, Analog Layout, Verilog</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 md:justify-end">
-                            <a href="images/UG Degree Certificate.pdf" target="_blank" class="px-3 py-1 bg-white/10 text-white text-xs rounded hover:bg-white/20 transition">Degree</a>
-                            <a href="images/UG Rank Certificate.pdf" target="_blank" class="px-3 py-1 bg-white/10 text-white text-xs rounded hover:bg-white/20 transition">Rank Cert</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="projects" class="py-20 reveal">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Featured Work</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                <article class="glass-panel rounded-2xl overflow-hidden flex flex-col h-full">
-                    <div class="p-8 flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-bold text-white">Financial Data Engine</h3>
-                            <a href="https://github.com/GOUTHAMBB/Large-Scale-Financial-Data-Ingestion-and-Time-Series-Analysis" target="_blank" class="text-slate-400 hover:text-white">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
-                            </a>
-                        </div>
-                        <p class="text-slate-300 mb-6 text-sm leading-relaxed">
-                            Large-scale financial data ingestion and analysis system built entirely with Python. The pipeline extracts real-time crypto market data using PyCoinGecko and Requests, performs high-performance data transformations with Pandas and NumPy, and manages optimized storage using Fastparquet. The project includes an interactive visualization dashboard built with Streamlit and Plotly.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded border border-primary/20">Python</span>
-                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded border border-primary/20">Pandas</span>
-                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded border border-primary/20">Streamlit</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="glass-panel rounded-2xl overflow-hidden flex flex-col h-full">
-                    <div class="p-8 flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-bold text-white">Sentinel Safeguard 360</h3>
-                            <a href="https://github.com/GOUTHAMBB/Sentinel-Safeguard-360" target="_blank" class="text-slate-400 hover:text-white">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
-                            </a>
-                        </div>
-                        <p class="text-slate-300 mb-6 text-sm leading-relaxed">
-                            The Sentinel Safeguard 360 robot employs sophisticated SLAM algorithms for accurate mapping and navigation, allowing it to autonomously patrol pre-designated regions. Integrated sensors, including motion sensors and cameras, provide environmental awareness for intrusion detection and visual monitoring.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded border border-secondary/20">SLAM</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded border border-secondary/20">OpenCV</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded border border-secondary/20">Arduino</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="glass-panel rounded-2xl overflow-hidden flex flex-col h-full">
-                    <div class="p-8 flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-bold text-white">IoT Health Monitor</h3>
-                            <a href="https://github.com/fortunespell/IEEE-Comsoc" target="_blank" class="text-slate-400 hover:text-white">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
-                            </a>
-                        </div>
-                        <p class="text-slate-300 mb-6 text-sm leading-relaxed">
-                            Innovative IoT healthcare monitoring system developed using ESP32 and Arduino. The online system enables real-time transmission of SpO2, heart rate, and blood pressure. The offline system uses LoRaWan integration with GPS and Temperature monitoring for off-grid reliability.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">LoRaWan</span>
-                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">ESP32</span>
-                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">C++</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="glass-panel rounded-2xl overflow-hidden flex flex-col h-full">
-                    <div class="p-8 flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-bold text-white">ML Model Suite</h3>
-                            <a href="https://github.com/GOUTHAMBB/CodeAlpha-Internship" target="_blank" class="text-slate-400 hover:text-white">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
-                            </a>
-                        </div>
-                        <p class="text-slate-300 mb-6 text-sm leading-relaxed">
-                            Developed comprehensive models for credit scoring, disease prediction, and handwritten character recognition. Leveraged various ML models including CNN, Random Forest, and Decision Trees to build real-time projects during an internship at CodeAlpha.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded border border-secondary/20">CNN</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded border border-secondary/20">Random Forest</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded border border-secondary/20">Scikit-learn</span>
-                        </div>
-                    </div>
-                </article>
-
-                 <article class="glass-panel rounded-2xl overflow-hidden flex flex-col h-full md:col-span-2">
-                    <div class="p-8 flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-bold text-white">Automatic Vacuum Cleaner</h3>
-                            <a href="https://github.com/GOUTHAMBB/Automated-Vaccum-Cleaner" target="_blank" class="text-slate-400 hover:text-white">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
-                            </a>
-                        </div>
-                        <p class="text-slate-300 mb-6 text-sm leading-relaxed">
-                            Functional prototype of an autonomous vacuum cleaner featuring power-on self-checks, ultrasonic obstacle avoidance, and high-speed DC motor suction logic. The system initializes with a battery check before navigating the environment to start cleaning.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">Embedded C</span>
-                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">Arduino IDE</span>
-                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">Robotics</span>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-        <section id="awards" class="py-20 reveal">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Recognition</h2>
-            <p class="text-center text-slate-400 mb-12 flex items-center justify-center gap-2">
-                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                Swipe to explore
-                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </p>
-            
-            <div class="horizontal-scroll-container px-4 md:px-0">
-                
-                <div class="scroll-item glass-panel rounded-2xl p-6 flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-bold text-primary uppercase">Publication</span>
-                        <span class="text-xs text-slate-500">Dec 2025</span>
-                    </div>
-                    <a href="https://ieeexplore.ieee.org/document/11294230" target="_blank" class="hover:text-primary transition-colors">
-                        <h3 class="text-lg font-bold text-white mb-2">Traffic Capacity Prediction in Mobile Networks</h3>
-                    </a>
-                    <p class="text-slate-400 text-sm mb-4">IEEE CSITSS 2025</p>
-                    <p class="text-sm text-slate-300 mt-auto">Proposed a machine learning-based forecasting framework (LSTM, RNN, GRU) for BTS counter values, achieving 94% accuracy with 22% improvement over traditional methods.</p>
-                </div>
-
-                <div class="scroll-item glass-panel rounded-2xl p-6 flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-bold text-primary uppercase">Publication</span>
-                        <span class="text-xs text-slate-500">Jun 2025</span>
-                    </div>
-                    <a href="https://jseepublisher.com/volume-35-issue-6-2025/" target="_blank" class="hover:text-primary transition-colors">
-                        <h3 class="text-lg font-bold text-white mb-2">Synthetic Voltage Data Generation</h3>
-                    </a>
-                    <p class="text-slate-400 text-sm mb-4">Journal of Systems Engineering & Electronics</p>
-                    <p class="text-sm text-slate-300 mt-auto">ML-based framework for reconstructing and analyzing AC voltage signals affected by power quality disturbances, using algorithms like Ridge Regression, KNN, and Random Forest.</p>
-                </div>
-
-                <div class="scroll-item glass-panel rounded-2xl p-6 flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-bold text-secondary uppercase">Winner</span>
-                        <span class="text-xs text-slate-500">Oct 2024</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Best Student Research Project</h3>
-                    <p class="text-slate-400 text-sm mb-4">Nokia Bangalore</p>
-                    <img src="images/Nokia best student project award.jfif" class="w-full h-32 object-cover rounded-lg mt-auto opacity-80 hover:opacity-100 transition" alt="Nokia Award">
-                </div>
-
-                <div class="scroll-item glass-panel rounded-2xl p-6 flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-bold text-primary uppercase">Award</span>
-                        <span class="text-xs text-slate-500">Aug 2025</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">MIQ Q2 Impact Award</h3>
-                    <p class="text-slate-400 text-sm mb-4">Impact Team — MIQ</p>
-                    <img src="images/MIQ Q2 impact team recieving award.jfif" class="w-full h-32 object-cover rounded-lg mt-auto opacity-80 hover:opacity-100 transition" alt="MIQ Award">
-                </div>
-
-                <div class="scroll-item glass-panel rounded-2xl p-6 flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-bold text-emerald-400 uppercase">Publication</span>
-                        <span class="text-xs text-slate-500">Oct 2024</span>
-                    </div>
-                    <a href="https://www.igi-global.com/book/innovative-recruitment-retention-employee-empowerment/344806" target="_blank" class="hover:text-emerald-400 transition-colors">
-                        <h3 class="text-lg font-bold text-white mb-2">Talent in Transformation</h3>
-                    </a>
-                    <p class="text-slate-400 text-sm mb-4">IGI Publication (CH:8)</p>
-                    <p class="text-sm text-slate-300 mt-auto">"Hiring and Keeping Talent in a Time of Transformation and Staff Empowerment". Explores talent management as a strategic issue in a tech-driven economy.</p>
-                </div>
-
-                <div class="scroll-item glass-panel rounded-2xl p-6 flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-bold text-secondary uppercase">Winner</span>
-                        <span class="text-xs text-slate-500">Jun 2024</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Best UI/UX Design</h3>
-                    <p class="text-slate-400 text-sm mb-4">IEEE COMSOC Hackathon</p>
-                    <img src="images/Best UI_UX Award.jfif" class="w-full h-32 object-cover rounded-lg mt-auto opacity-80 hover:opacity-100 transition" alt="Design Award">
-                </div>
-
-                <div class="scroll-item glass-panel rounded-2xl p-6 flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-bold text-emerald-400 uppercase">Publication</span>
-                        <span class="text-xs text-slate-500">Apr 2024</span>
-                    </div>
-                    <a href="https://www.igi-global.com/book/marketing-big-data-analytics-tourism/335466" target="_blank" class="hover:text-emerald-400 transition-colors">
-                        <h3 class="text-lg font-bold text-white mb-2">Tourism Marketing & BDA</h3>
-                    </a>
-                    <p class="text-slate-400 text-sm mb-4">IGI Publication (CH:12)</p>
-                    <p class="text-sm text-slate-300 mt-auto">"Utilizing MKIS and BDA in Promoting Tourism Destinations". Examines the integration of Big Data Analytics with Marketing Information Systems.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="certifications" class="py-20 reveal">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Credentials & Certifications</h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                
-                <div class="glass-panel p-5 rounded-xl hover:bg-white/5 transition group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="p-2 bg-primary/20 rounded-lg text-primary">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                        </div>
-                        <span class="text-xs text-slate-500 font-mono">Feb 2025</span>
-                    </div>
-                    <h3 class="font-bold text-white leading-tight mb-1">Spark SQL</h3>
-                    <p class="text-xs text-slate-400 mb-3">LinkedIn</p>
-                    <a href="images/Introduction to Spark SQL and data frame certificare.jfif" target="_blank" class="text-xs font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        View Credential &rarr;
-                    </a>
-                </div>
-
-                <div class="glass-panel p-5 rounded-xl hover:bg-white/5 transition group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="p-2 bg-primary/20 rounded-lg text-primary">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
-                        </div>
-                        <span class="text-xs text-slate-500 font-mono">Jan 2025</span>
-                    </div>
-                    <h3 class="font-bold text-white leading-tight mb-1">SQL Essentials</h3>
-                    <p class="text-xs text-slate-400 mb-3">LinkedIn</p>
-                    <a href="images/SQL Essentials training Certificate.jfif" target="_blank" class="text-xs font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        View Credential &rarr;
-                    </a>
-                </div>
-
-                <div class="glass-panel p-5 rounded-xl hover:bg-white/5 transition group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="p-2 bg-secondary/20 rounded-lg text-secondary">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        </div>
-                        <span class="text-xs text-slate-500 font-mono">Apr 2024</span>
-                    </div>
-                    <h3 class="font-bold text-white leading-tight mb-1">Data Science</h3>
-                    <p class="text-xs text-slate-400 mb-3">NPTEL (Top 2%)</p>
-                    <a href="images/Datascience for Engineers.pdf" target="_blank" class="text-xs font-bold text-secondary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        View Credential &rarr;
-                    </a>
-                </div>
-
-                <div class="glass-panel p-5 rounded-xl hover:bg-white/5 transition group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="p-2 bg-secondary/20 rounded-lg text-secondary">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        </div>
-                        <span class="text-xs text-slate-500 font-mono">Oct 2024</span>
-                    </div>
-                    <h3 class="font-bold text-white leading-tight mb-1">EDA Tool Dev</h3>
-                    <p class="text-xs text-slate-400 mb-3">RV College</p>
-                    <a href="images/EDA Tool development certificate.png" target="_blank" class="text-xs font-bold text-secondary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        View Credential &rarr;
-                    </a>
-                </div>
-
-                <div class="glass-panel p-5 rounded-xl hover:bg-white/5 transition group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="p-2 bg-white/10 rounded-lg text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                        </div>
-                        <span class="text-xs text-slate-500 font-mono">Sep 2023</span>
-                    </div>
-                    <h3 class="font-bold text-white leading-tight mb-1">DSA in Python</h3>
-                    <p class="text-xs text-slate-400 mb-3">NPTEL</p>
-                    <a href="images/DSA Certificate.pdf" target="_blank" class="text-xs font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        View Credential &rarr;
-                    </a>
-                </div>
-
-                <div class="glass-panel p-5 rounded-xl hover:bg-white/5 transition group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="p-2 bg-white/10 rounded-lg text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                        </div>
-                        <span class="text-xs text-slate-500 font-mono">Jun 2023</span>
-                    </div>
-                    <h3 class="font-bold text-white leading-tight mb-1">Supervised ML</h3>
-                    <p class="text-xs text-slate-400 mb-3">Coursera</p>
-                    <a href="images/Supervised_ML.pdf" target="_blank" class="text-xs font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        View Credential &rarr;
-                    </a>
-                </div>
-
-                <div class="glass-panel p-5 rounded-xl hover:bg-white/5 transition group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="p-2 bg-emerald-500/20 rounded-lg text-emerald-400">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-                        </div>
-                        <span class="text-xs text-slate-500 font-mono">Jun 2023</span>
-                    </div>
-                    <h3 class="font-bold text-white leading-tight mb-1">PCB Design</h3>
-                    <p class="text-xs text-slate-400 mb-3">RV College</p>
-                    <a href="images/PCB Designing Certificate.jfif" target="_blank" class="text-xs font-bold text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        View Credential &rarr;
-                    </a>
-                </div>
-
-                <div class="glass-panel p-5 rounded-xl hover:bg-white/5 transition group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="p-2 bg-emerald-500/20 rounded-lg text-emerald-400">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 5.523-4.477 10-10 10S1 17.523 1 12 5.477 2 11 2s10 4.477 10 10z"></path></svg>
-                        </div>
-                        <span class="text-xs text-slate-500 font-mono">May 2023</span>
-                    </div>
-                    <h3 class="font-bold text-white leading-tight mb-1">Git for Beginners</h3>
-                    <p class="text-xs text-slate-400 mb-3">Udemy</p>
-                    <a href="images/Git for Beginners.pdf" target="_blank" class="text-xs font-bold text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        View Credential &rarr;
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="contact" class="py-20 max-w-2xl mx-auto reveal">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Let's Connect</h2>
-            <div class="glass-panel p-8 rounded-2xl">
-                <form id="feedback-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-slate-400 mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="w-full bg-[#020412] border border-slate-700 rounded-lg p-3 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition" placeholder="Recruiter Name">
-                        </div>
-                        <div>
-                            <label for="company" class="block text-sm font-medium text-slate-400 mb-2">Company</label>
-                            <input type="text" id="company" name="company" class="w-full bg-[#020412] border border-slate-700 rounded-lg p-3 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition" placeholder="Company Name">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-slate-400 mb-2">Email Address</label>
-                        <input type="email" id="email" name="email" class="w-full bg-[#020412] border border-slate-700 rounded-lg p-3 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition" placeholder="name@company.com" required>
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-slate-400 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full bg-[#020412] border border-slate-700 rounded-lg p-3 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition" placeholder="Any feedback on my profile?"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-primary hover:bg-sky-400 text-white font-bold py-3 rounded-lg transition shadow-[0_0_20px_rgba(14,165,233,0.3)]">
-                        Send Feedback
-                    </button>
-                    <p id="form-message" class="text-center text-sm mt-4 min-h-[20px]"></p>
-                </form>
-
-                <div class="mt-8 flex justify-center space-x-6 border-t border-slate-800 pt-8">
-                    <a href="mailto:gouthambb999@gmail.com" class="text-slate-400 hover:text-white transition transform hover:scale-110" aria-label="Email">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/goutham-b-bhandari-49821a1ab" target="_blank" class="text-slate-400 hover:text-white transition transform hover:scale-110" aria-label="LinkedIn">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="https://github.com/GOUTHAMBB" target="_blank" class="text-slate-400 hover:text-white transition transform hover:scale-110" aria-label="GitHub">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <div id="chatbot-ui" class="fixed bottom-6 right-6 z-50">
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 md:w-96 h-[500px] glass-panel rounded-2xl flex flex-col overflow-hidden shadow-2xl transform transition origin-bottom-right">
-            <div class="bg-slate-900/50 p-4 border-b border-slate-700 flex justify-between items-center">
-                <span class="font-bold text-white">Project Assistant</span>
-                <button onclick="toggleChat()" class="text-slate-400 hover:text-white">&times;</button>
-            </div>
-            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto space-y-4">
-                <div class="flex items-start">
-                    <div class="bg-primary/20 text-primary p-3 rounded-lg rounded-tl-none text-sm max-w-[80%]">
-                        Hello! Ask me about Goutham's work in VLSI or AI.
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 border-t border-slate-700 bg-slate-900/30">
-                <div class="flex gap-2">
-                    <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-grow bg-[#020412] border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:border-primary focus:outline-none">
-                    <button id="send-btn" class="bg-primary text-white p-2 rounded-lg hover:bg-sky-400 transition">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <button onclick="toggleChat()" class="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition shadow-primary/40">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-        </button>
+    <div id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Expertise</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#recognition">Publications &amp; Awards</a>
+        <a href="#certifications">Credentials</a>
+        <a href="#contact">Contact</a>
     </div>
 
-    <script>
-        // --- 1. Background Animation (Three.js) ---
-        (function initBackground() {
-            const canvas = document.getElementById('bg-canvas');
-            if(!canvas) return;
-            
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.z = 1;
-            camera.rotation.x = Math.PI / 2;
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="section section--hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="reveal">
+                        <div class="status-pill">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            <span>Product Analyst at MiQ &middot; Bengaluru, India</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Engineering <em>Intelligent</em> Data &amp; Embedded Systems.
+                        </h1>
+                        <p class="hero-lead">
+                            I am <strong>Goutham B Bhandari</strong>. Bridging silicon-level VLSI discipline with production-grade Data Engineering and Applied Machine Learning to build resilient, measurable systems.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary">
+                                Explore Selected Work
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                            <a href="https://www.linkedin.com/in/goutham-b-bhandari-49821a1ab" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn &nearr;</a>
+                        </div>
+                    </div>
 
-            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-            const starGeo = new THREE.BufferGeometry();
-            const count = 4000;
-            const points = new Float32Array(count * 3);
-            
-            for(let i=0; i<count * 3; i++) {
-                points[i] = (Math.random() - 0.5) * 1500;
-            }
-            
-            starGeo.setAttribute('position', new THREE.BufferAttribute(points, 3));
-            const starMat = new THREE.PointsMaterial({ color: 0x888888, size: 0.5 });
-            const stars = new THREE.Points(starGeo, starMat);
-            scene.add(stars);
-
-            function animate() {
-                stars.rotation.z += 0.0005;
-                renderer.render(scene, camera);
-                requestAnimationFrame(animate);
-            }
-            
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-            
-            animate();
-        })();
-
-        // --- 2. Scroll Logic & Progress ---
-        let scrollTimeout;
-        const progressBar = document.getElementById('scroll-progress');
-        
-        window.addEventListener('scroll', () => {
-            if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
-            
-            scrollTimeout = requestAnimationFrame(() => {
-                const scrollTop = document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = scrollTop / height;
-                
-                if(progressBar) {
-                    progressBar.style.transform = `scaleX(${scrolled})`;
-                }
-
-                document.querySelectorAll('.reveal').forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    if(rect.top < window.innerHeight * 0.85) {
-                        el.classList.add('active');
-                    }
-                });
-            });
-        });
-
-        // --- 3. UI Interactions ---
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-        });
-
-        function toggleChat() {
-            const chatWindow = document.getElementById('chat-window');
-            chatWindow.classList.toggle('hidden');
-        }
-
-        // --- 4. Form Handling (Connected to Google Sheets) ---
-        const form = document.getElementById('feedback-form');
-        const msg = document.getElementById('form-message');
-        
-        // ---------------------------------------------------------
-        // PASTE YOUR DEPLOYED WEB APP URL HERE
-        // Example: 'https://script.google.com/macros/s/AKfycb.../exec'
-        // ---------------------------------------------------------
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx_hcTnNfhDhzJevol_ZvuSEHLSE39nTVg0fQ5JWZmgG-pJeze8T41JHysOxyvDrlcG/exec'; 
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerHTML = 'Sending...';
-            btn.disabled = true;
-
-            // Gather the data
-            const data = {
-                name: document.getElementById('name').value,
-                company: document.getElementById('company').value,
-                email: document.getElementById('email').value, // <--- GRABS EMAIL
-                message: document.getElementById('message').value
-            };
-
-            // Send to Google Apps Script
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors', // Important: This suppresses CORS errors for Google Scripts
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
-            .then(() => {
-                // Success Message
-                msg.textContent = "Thank you! Your feedback has been saved.";
-                msg.style.color = "#4ade80"; // Green
-                btn.innerHTML = 'Sent';
-                form.reset();
-                
-                setTimeout(() => { 
-                    btn.innerHTML = originalText; 
-                    btn.disabled = false; 
-                    msg.textContent = '';
-                }, 5000);
-            })
-            .catch(error => {
-                // Error Message
-                console.error('Error!', error.message);
-                msg.textContent = "Something went wrong. Please try again.";
-                msg.style.color = "#f87171"; // Red
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            });
-        });
-
-        // --- 5. Chatbot Mock Logic ---
-        const chatInput = document.getElementById('chat-input');
-        const sendBtn = document.getElementById('send-btn');
-        const chatMessages = document.getElementById('chat-messages');
-
-        function addMessage(text, isUser = false) {
-            const div = document.createElement('div');
-            div.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
-            div.innerHTML = `
-                <div class="${isUser ? 'bg-secondary text-white' : 'bg-primary/20 text-primary'} p-3 rounded-lg text-sm max-w-[80%] ${isUser ? 'rounded-tr-none' : 'rounded-tl-none'}">
-                    ${text}
+                    <aside class="hero-dossier reveal" aria-label="Profile Summary">
+                        <div class="dossier-header">
+                            <span class="dossier-label">Executive Dossier</span>
+                            <span class="dossier-id">ECE &middot; AI &middot; DATA</span>
+                        </div>
+                        <div class="dossier-list">
+                            <div class="dossier-row">
+                                <span class="dossier-key">Current Role</span>
+                                <span class="dossier-val">Product Analyst, MiQ</span>
+                            </div>
+                            <div class="dossier-row">
+                                <span class="dossier-key">Prior Stints</span>
+                                <span class="dossier-val">Nokia NBUC &middot; DRDO LRDE</span>
+                            </div>
+                            <div class="dossier-row">
+                                <span class="dossier-key">Alma Mater</span>
+                                <span class="dossier-val">RVCE Bengaluru (2025)</span>
+                            </div>
+                            <div class="dossier-row">
+                                <span class="dossier-key">Distinction</span>
+                                <span class="dossier-val">Rank 5 &middot; 9.46 CGPA</span>
+                            </div>
+                            <div class="dossier-row">
+                                <span class="dossier-key">Recognition</span>
+                                <span class="dossier-val">MiQ Q2 Impact &middot; Nokia Best Project</span>
+                            </div>
+                        </div>
+                        <div class="dossier-socials">
+                            <a href="https://www.linkedin.com/in/goutham-b-bhandari-49821a1ab" target="_blank" rel="noopener noreferrer" class="social-chip">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/GOUTHAMBB" target="_blank" rel="noopener noreferrer" class="social-chip">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                                GitHub
+                            </a>
+                            <a href="mailto:gouthambb999@gmail.com" class="social-chip">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                Email
+                            </a>
+                        </div>
+                    </aside>
                 </div>
-            `;
-            chatMessages.appendChild(div);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
 
-        sendBtn.addEventListener('click', () => {
-            const val = chatInput.value.trim();
-            if(!val) return;
-            
-            addMessage(val, true);
-            chatInput.value = '';
+                <!-- Key Metrics Strip -->
+                <div class="metrics-strip reveal">
+                    <div class="metric-cell">
+                        <div class="metric-value">9.46<span>/10</span></div>
+                        <div class="metric-label">B.E. ECE CGPA &middot; 5th Rank in Graduating Class (RVCE)</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-value">04</div>
+                        <div class="metric-label">Peer-Reviewed Publications across IEEE, JSEE &amp; IGI Global</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-value">94<span>%</span></div>
+                        <div class="metric-label">Forecasting Accuracy on Nokia BTS Traffic Prediction (+22% Lift)</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-value">Top 2<span>%</span></div>
+                        <div class="metric-label">NPTEL Data Science for Engineers &middot; GATE 2025 Qualified</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            setTimeout(() => {
-                addMessage("Sorry, I'm having trouble connecting to my brain right now. Please try again later.");
-            }, 800);
-        });
-        
-        chatInput.addEventListener('keypress', (e) => {
-            if(e.key === 'Enter') sendBtn.click();
-        });
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">01 &middot; Profile</span>
+                    <h2 class="section-title">Precision from <em>Silicon</em> to Scalable Analytics.</h2>
+                </div>
 
-    </script>
+                <div class="about-grid">
+                    <div class="about-prose reveal">
+                        <p>
+                            Graduating with <strong>First Class with Distinction (Rank 5)</strong> in Electronics &amp; Communication Engineering from <strong>RV College of Engineering, Bengaluru</strong>, my work sits at the intersection of hardware rigor and large-scale software intelligence.
+                        </p>
+                        <p>
+                            Currently a <strong>Product Analyst at MiQ</strong> on the DnA – USLP Healthcare team, I lead healthcare measurement workflows, modernize legacy pipelines with Jenkins, SonarQube, and Pytest, and engineer analytics in PySpark across programmatic ecosystems including The Trade Desk (TTD) and DV360.
+                        </p>
+                        <p>
+                            Previously, I spent a year researching deep learning telecom capacity models at <strong>Nokia (NBUC)</strong>—earning Best Student Research Project honors—and built Kalman-filtered LoRa/RFID tracking systems during a defense research internship at <strong>DRDO (LRDE)</strong>.
+                        </p>
+                    </div>
+
+                    <div class="pillars-card reveal">
+                        <div class="pillar-item">
+                            <span class="pillar-num">01</span>
+                            <div>
+                                <div class="pillar-title">Production Data &amp; DevOps</div>
+                                <div class="pillar-desc">PySpark, SQL, automated CI/CD quality gates (Jenkins, SonarQube, Pytest), and healthcare programmatic measurement.</div>
+                            </div>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-num">02</span>
+                            <div>
+                                <div class="pillar-title">Applied Deep Learning &amp; Research</div>
+                                <div class="pillar-desc">Time-series forecasting (LSTM, RNN, GRU), CNNs, and signal reconstruction published in IEEE CSITSS &amp; JSEE.</div>
+                            </div>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-num">03</span>
+                            <div>
+                                <div class="pillar-title">VLSI &amp; Embedded Systems</div>
+                                <div class="pillar-desc">Verilog, Cadence, Static Timing Analysis, PCB layout, and resilient LoRaWAN / ESP32 edge architectures.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills / Technical Arsenal -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">02 &middot; Capabilities</span>
+                    <h2 class="section-title">Technical <em>Arsenal</em></h2>
+                    <p class="section-subtitle">A multidisciplinary toolkit spanning distributed data engineering, machine learning research, and hardware architecture.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+                            </div>
+                            <span class="skill-index">01 / INTELLIGENCE</span>
+                        </div>
+                        <h3>AI &amp; Machine Learning</h3>
+                        <p class="skill-summary">Designing sequential forecasting models, computer vision pipelines, and supervised learning architectures.</p>
+                        <div class="tag-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">CNNs</span>
+                            <span class="tag">LSTM / GRU</span>
+                            <span class="tag">Scikit-learn</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card skill-card--emerald reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                            </div>
+                            <span class="skill-index">02 / SCALE</span>
+                        </div>
+                        <h3>Data &amp; DevOps</h3>
+                        <p class="skill-summary">Building high-throughput Spark pipelines, automated test harnesses, and programmatic measurement workflows.</p>
+                        <div class="tag-list">
+                            <span class="tag">SQL</span>
+                            <span class="tag">PySpark</span>
+                            <span class="tag">Spark SQL</span>
+                            <span class="tag">Jenkins</span>
+                            <span class="tag">SonarQube</span>
+                            <span class="tag">Pytest</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">TTD / DV360</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card skill-card--gold reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            </div>
+                            <span class="skill-index">03 / SILICON</span>
+                        </div>
+                        <h3>VLSI &amp; Embedded</h3>
+                        <p class="skill-summary">Hardware description, analog/digital EDA flows, PCB design, and RF/LoRa sensor telemetry systems.</p>
+                        <div class="tag-list">
+                            <span class="tag">Verilog</span>
+                            <span class="tag">Cadence</span>
+                            <span class="tag">STA</span>
+                            <span class="tag">PCB Design</span>
+                            <span class="tag">LTSpice</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">LoRaWAN</span>
+                            <span class="tag">Embedded C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">03 &middot; Trajectory</span>
+                    <h2 class="section-title">Experience &amp; <em>Education</em></h2>
+                    <p class="section-subtitle">Industry impact across programmatic analytics, telecom AI research, defense radar labs, and academic excellence.</p>
+                </div>
+
+                <div class="ledger">
+                    <!-- MiQ -->
+                    <article class="ledger-item reveal">
+                        <div class="ledger-meta">
+                            <span class="ledger-period">Jan 2025 &ndash; Present</span>
+                            <div class="ledger-org">MiQ Digital India</div>
+                            <span class="ledger-loc">Bengaluru, India</span>
+                            <span class="ledger-badge ledger-badge--gold">2025 Q2 Impact Award</span>
+                        </div>
+                        <div class="ledger-content">
+                            <h3>Product Analyst &mdash; DnA USLP Healthcare</h3>
+                            <ul class="ledger-bullets">
+                                <li>Leading healthcare measurement workflows across programmatic advertising platforms (The Trade Desk, DV360).</li>
+                                <li>Migrated production analytics systems to CI/CD DevOps pipelines integrating Jenkins, SonarQube, and Pytest.</li>
+                                <li>Engineered scalable data transformations in PySpark and SQL following successful 6-month internship (Jan &ndash; Jul 2025).</li>
+                            </ul>
+                            <div class="ledger-actions">
+                                <button type="button" class="doc-btn" data-doc-src="images/MIQ Internship Completion Certificate.pdf" data-doc-title="MiQ Internship Completion Certificate">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                    Internship Certificate
+                                </button>
+                                <button type="button" class="doc-btn" data-doc-src="images/MIQ Q2 Impact Award.jfif" data-doc-title="MiQ 2025 Q2 Impact Award">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                                    Q2 Impact Citation
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Nokia -->
+                    <article class="ledger-item reveal">
+                        <div class="ledger-meta">
+                            <span class="ledger-period">Mar 2023 &ndash; Mar 2024</span>
+                            <div class="ledger-org">Nokia (NBUC)</div>
+                            <span class="ledger-loc">Bengaluru, India</span>
+                            <span class="ledger-badge">Best Student Project</span>
+                        </div>
+                        <div class="ledger-content">
+                            <h3>Project Intern &mdash; Intelligent Traffic Prediction</h3>
+                            <ul class="ledger-bullets">
+                                <li>Engineered intelligent traffic capacity prediction models for Base Transceiver Stations (BTS) under Nokia Bangalore University Collaboration.</li>
+                                <li>Designed LSTM, RNN, and GRU deep learning pipelines with optimized feature engineering, achieving 94% accuracy and a 22% lift over baselines.</li>
+                                <li>Published findings at IEEE CSITSS 2025 and won Best Student Research Project at 10 Years of NBUC.</li>
+                            </ul>
+                            <div class="ledger-actions">
+                                <button type="button" class="doc-btn" data-doc-src="images/Nokia internship completion certificate.pdf" data-doc-title="Nokia NBUC Internship Certificate">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                    Completion Certificate
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- DRDO -->
+                    <article class="ledger-item reveal">
+                        <div class="ledger-meta">
+                            <span class="ledger-period">Nov 2023 &ndash; Dec 2023</span>
+                            <div class="ledger-org">DRDO &mdash; LRDE</div>
+                            <span class="ledger-loc">Ministry of Defence, Bengaluru</span>
+                            <span class="ledger-badge ledger-badge--emerald">Defense Research</span>
+                        </div>
+                        <div class="ledger-content">
+                            <h3>Research Intern &mdash; D-PSRR Directorate</h3>
+                            <ul class="ledger-bullets">
+                                <li>Completed research project titled <em>&ldquo;Signal Detection via LoRa Devices in RFID Systems&rdquo;</em> at Electronics &amp; Radar Development Establishment.</li>
+                                <li>Led team in RFID/LoRa wireless communication for location detection and implemented Kalman filtering for real-time tracking accuracy.</li>
+                            </ul>
+                            <div class="ledger-actions">
+                                <button type="button" class="doc-btn" data-doc-src="images/DRDO Internship Completion Certificate.jfif" data-doc-title="DRDO LRDE Internship Certificate">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                    View Certificate
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- RVCE -->
+                    <article class="ledger-item reveal">
+                        <div class="ledger-meta">
+                            <span class="ledger-period">2021 &ndash; 2025</span>
+                            <div class="ledger-org">RV College of Engineering</div>
+                            <span class="ledger-loc">VTU, Bengaluru</span>
+                            <span class="ledger-badge ledger-badge--gold">Rank 5 &middot; 9.46 CGPA</span>
+                        </div>
+                        <div class="ledger-content">
+                            <h3>B.E. in Electronics &amp; Communication Engineering</h3>
+                            <ul class="ledger-bullets">
+                                <li>Graduated with <strong>First Class with Distinction</strong> (9.46 / 10 CGPA), securing <strong>5th Rank</strong> across the graduating batch of 2025.</li>
+                                <li><strong>GATE 2025 Qualified</strong> (Rank 5406); specialized in Digital Logic, Analog Layout, Verilog, and EDA Tool Development.</li>
+                            </ul>
+                            <div class="ledger-actions">
+                                <button type="button" class="doc-btn" data-doc-src="images/UG Degree Certificate.pdf" data-doc-title="VTU B.E. Degree Certificate">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                    Degree Certificate
+                                </button>
+                                <button type="button" class="doc-btn" data-doc-src="images/UG Rank Certificate.pdf" data-doc-title="RVCE 5th Rank Certificate">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                                    Rank Certificate
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header section-header--split reveal">
+                    <div>
+                        <span class="eyebrow">04 &middot; Selected Work</span>
+                        <h2 class="section-title">Featured <em>Projects</em></h2>
+                    </div>
+                    <div class="filter-bar" role="group" aria-label="Filter projects by domain">
+                        <button type="button" class="filter-btn active" data-filter="all">All (5)</button>
+                        <button type="button" class="filter-btn" data-filter="data-ai">Data &amp; AI</button>
+                        <button type="button" class="filter-btn" data-filter="robotics-iot">Robotics &amp; IoT</button>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Featured Project 1 -->
+                    <article class="project-card project-card--featured reveal" data-category="data-ai">
+                        <div>
+                            <div class="project-top">
+                                <span class="project-cat">Data Engineering &amp; Analytics</span>
+                                <a href="https://github.com/GOUTHAMBB/Large-Scale-Financial-Data-Ingestion-and-Time-Series-Analysis" target="_blank" rel="noopener noreferrer" class="project-repo">
+                                    GitHub &nearr;
+                                </a>
+                            </div>
+                            <h3 class="project-title">Financial Data Engine</h3>
+                            <p class="project-desc">
+                                End-to-end large-scale financial data ingestion and time-series analysis pipeline built in Python. Extracts live crypto market streams via PyCoinGecko and Requests, executes vectorized transformations in Pandas and NumPy, persists columnar datasets using Fastparquet, and powers an interactive Streamlit and Plotly analytics suite.
+                            </p>
+                            <div class="tag-list">
+                                <span class="tag">Python</span>
+                                <span class="tag">Pandas</span>
+                                <span class="tag">Fastparquet</span>
+                                <span class="tag">Streamlit</span>
+                                <span class="tag">Plotly</span>
+                            </div>
+                        </div>
+                        <div class="project-highlights">
+                            <div class="project-highlights-title">Architecture Highlights</div>
+                            <ul>
+                                <li>Automated ingestion pipeline with fault-tolerant API extraction.</li>
+                                <li>Columnar Parquet compression via Fastparquet for fast time-series slicing.</li>
+                                <li>Real-time interactive volatility and trend visualization dashboard.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card reveal" data-category="robotics-iot">
+                        <div class="project-top">
+                            <span class="project-cat">Autonomous Robotics &amp; Vision</span>
+                            <a href="https://github.com/GOUTHAMBB/Sentinel-Safeguard-360" target="_blank" rel="noopener noreferrer" class="project-repo">
+                                GitHub &nearr;
+                            </a>
+                        </div>
+                        <h3 class="project-title">Sentinel Safeguard 360</h3>
+                        <p class="project-desc">
+                            Autonomous security patrol robot utilizing SLAM algorithms for indoor mapping and navigation. Integrates ESP32-CAM, PIR motion, and LDR sensors with MQTT telemetry and a web-based monitoring dashboard for intrusion detection.
+                        </p>
+                        <div class="tag-list">
+                            <span class="tag">SLAM</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">ESP32-CAM</span>
+                            <span class="tag">MQTT</span>
+                            <span class="tag">Arduino</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card reveal" data-category="robotics-iot">
+                        <div class="project-top">
+                            <span class="project-cat">Embedded &amp; LoRaWAN Telemetry</span>
+                            <a href="https://github.com/fortunespell/IEEE-Comsoc" target="_blank" rel="noopener noreferrer" class="project-repo">
+                                GitHub &nearr;
+                            </a>
+                        </div>
+                        <h3 class="project-title">IoT Health Monitor</h3>
+                        <p class="project-desc">
+                            Dual-mode healthcare monitoring platform built on ESP32 and Arduino. Streams live SpO2, heart rate, and blood pressure online, while seamlessly switching to LoRaWAN with GPS and temperature telemetry for off-grid reliability.
+                        </p>
+                        <div class="tag-list">
+                            <span class="tag">LoRaWAN</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">GPS</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="project-card reveal" data-category="data-ai">
+                        <div class="project-top">
+                            <span class="project-cat">Applied Machine Learning</span>
+                            <a href="https://github.com/GOUTHAMBB/CodeAlpha-Internship" target="_blank" rel="noopener noreferrer" class="project-repo">
+                                GitHub &nearr;
+                            </a>
+                        </div>
+                        <h3 class="project-title">ML Model Suite</h3>
+                        <p class="project-desc">
+                            Production-oriented machine learning suite encompassing credit risk scoring, disease prediction, and handwritten character recognition using Convolutional Neural Networks (CNNs), Random Forests, and Decision Trees.
+                        </p>
+                        <div class="tag-list">
+                            <span class="tag">CNN</span>
+                            <span class="tag">Random Forest</span>
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 5 -->
+                    <article class="project-card reveal" data-category="robotics-iot">
+                        <div class="project-top">
+                            <span class="project-cat">Embedded Control Systems</span>
+                            <a href="https://github.com/GOUTHAMBB/Automated-Vaccum-Cleaner" target="_blank" rel="noopener noreferrer" class="project-repo">
+                                GitHub &nearr;
+                            </a>
+                        </div>
+                        <h3 class="project-title">Autonomous Vacuum Cleaner</h3>
+                        <p class="project-desc">
+                            Functional autonomous floor-cleaning prototype engineered in Embedded C. Implements power-on battery diagnostics, ultrasonic obstacle avoidance logic, and high-speed DC motor suction control.
+                        </p>
+                        <div class="tag-list">
+                            <span class="tag">Embedded C</span>
+                            <span class="tag">Arduino IDE</span>
+                            <span class="tag">Ultrasonic</span>
+                            <span class="tag">Robotics</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications & Honors -->
+        <section id="recognition" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">05 &middot; Research &amp; Honors</span>
+                    <h2 class="section-title">Publications &amp; <em>Recognition</em></h2>
+                    <p class="section-subtitle">Peer-reviewed research contributions and industry accolades across telecommunications, power electronics, and product impact.</p>
+                </div>
+
+                <div class="recognition-split">
+                    <!-- Publications -->
+                    <div>
+                        <div class="sub-heading">Peer-Reviewed Publications (04)</div>
+                        <div class="pub-grid">
+                            <article class="pub-card reveal">
+                                <div class="pub-meta">
+                                    <span class="pub-venue">IEEE CSITSS 2025</span>
+                                    <span class="pub-date">Dec 2025</span>
+                                </div>
+                                <h3 class="pub-title">Deep Learning Approaches for Intelligent Traffic Capacity Prediction in Mobile Communication Networks</h3>
+                                <p class="pub-desc">Proposed a forecasting framework (LSTM, RNN, GRU) for BTS counter values, achieving 94% accuracy with a 22% improvement over traditional baselines.</p>
+                                <a href="https://ieeexplore.ieee.org/document/11294230" target="_blank" rel="noopener noreferrer" class="pub-link">Read on IEEE Xplore &nearr;</a>
+                            </article>
+
+                            <article class="pub-card reveal">
+                                <div class="pub-meta">
+                                    <span class="pub-venue">JSEE &middot; Vol. 35 Issue 6</span>
+                                    <span class="pub-date">Jun 2025</span>
+                                </div>
+                                <h3 class="pub-title">Synthetic Voltage Data Generation, Modeling &amp; Characterization of Power Quality Issues</h3>
+                                <p class="pub-desc">ML-based framework for reconstructing and analyzing AC voltage signals affected by power quality disturbances using Ridge Regression, KNN, and Random Forest.</p>
+                                <a href="https://jseepublisher.com/volume-35-issue-6-2025/" target="_blank" rel="noopener noreferrer" class="pub-link">View Journal Issue &nearr;</a>
+                            </article>
+
+                            <article class="pub-card reveal">
+                                <div class="pub-meta">
+                                    <span class="pub-venue">IGI Global &middot; Ch. 8</span>
+                                    <span class="pub-date">Oct 2024</span>
+                                </div>
+                                <h3 class="pub-title">Hiring and Keeping Talent in a Time of Transformation and Staff Empowerment</h3>
+                                <p class="pub-desc">Examines strategic talent management, empowerment frameworks, and organizational resilience in a technology-driven economy.</p>
+                                <a href="https://www.igi-global.com/book/innovative-recruitment-retention-employee-empowerment/344806" target="_blank" rel="noopener noreferrer" class="pub-link">View Publication &nearr;</a>
+                            </article>
+
+                            <article class="pub-card reveal">
+                                <div class="pub-meta">
+                                    <span class="pub-venue">IGI Global &middot; Ch. 12</span>
+                                    <span class="pub-date">Apr 2024</span>
+                                </div>
+                                <h3 class="pub-title">Utilizing Marketing Information Systems and Big Data Analytics in Promoting Tourism Destinations</h3>
+                                <p class="pub-desc">Investigates the architectural integration of Big Data Analytics with Marketing Information Systems for data-led destination strategy.</p>
+                                <a href="https://www.igi-global.com/book/marketing-big-data-analytics-tourism/335466" target="_blank" rel="noopener noreferrer" class="pub-link">View Publication &nearr;</a>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Awards -->
+                    <div>
+                        <div class="sub-heading">Honors &amp; Awards (03)</div>
+                        <div class="awards-grid">
+                            <article class="award-card reveal">
+                                <div class="award-media" data-doc-src="images/MIQ Q2 impact team recieving award.jfif" data-doc-title="MiQ 2025 Q2 Impact Award — DnA USLP Healthcare Team">
+                                    <img src="images/MIQ Q2 impact team recieving award.jfif" alt="MiQ Q2 Impact Award Team Ceremony" loading="lazy">
+                                    <span class="award-zoom-hint">Click to enlarge</span>
+                                </div>
+                                <div class="award-body">
+                                    <span class="award-tag">Aug 2025 &middot; Corporate Award</span>
+                                    <h3 class="award-title">MiQ Q2 Impact Award</h3>
+                                    <p class="award-org">DnA &ndash; USLP Healthcare Team, MiQ Bengaluru</p>
+                                    <div class="award-extra">
+                                        <button type="button" class="doc-btn" data-doc-src="images/MIQ Q2 Impact Award.jfif" data-doc-title="MiQ 2025 Q2 Impact Award Certificate">View Citation</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="award-card reveal">
+                                <div class="award-media" data-doc-src="images/Nokia best student project award.jfif" data-doc-title="Best Student Research Project — 10 Years of Nokia NBUC">
+                                    <img src="images/Nokia best student project award.jfif" alt="Nokia Best Student Research Project Showcase" loading="lazy">
+                                    <span class="award-zoom-hint">Click to enlarge</span>
+                                </div>
+                                <div class="award-body">
+                                    <span class="award-tag">Oct 2024 &middot; 1st Prize</span>
+                                    <h3 class="award-title">Best Student Research Project</h3>
+                                    <p class="award-org">Nokia Bangalore University Collaboration (NBUC)</p>
+                                </div>
+                            </article>
+
+                            <article class="award-card reveal">
+                                <div class="award-media" data-doc-src="images/Best UI_UX Award.jfif" data-doc-title="Best UI/UX Design — Intel & IEEE ComSoc Hackathon">
+                                    <img src="images/Best UI_UX Award.jfif" alt="Best UI/UX Design Award at Intel & IEEE ComSoc Hackathon" loading="lazy">
+                                    <span class="award-zoom-hint">Click to enlarge</span>
+                                </div>
+                                <div class="award-body">
+                                    <span class="award-tag">Jun 2024 &middot; Hackathon Winner</span>
+                                    <h3 class="award-title">Best UI/UX Design</h3>
+                                    <p class="award-org">Intel Hackathon &amp; IEEE ComSoc</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credentials & Certifications -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">06 &middot; Verification</span>
+                    <h2 class="section-title">Credentials &amp; <em>Certifications</em></h2>
+                    <p class="section-subtitle">Select any credential below to inspect the verified certificate.</p>
+                </div>
+
+                <div class="certs-grid">
+                    <button type="button" class="cert-card reveal" data-doc-src="images/Introduction to Spark SQL and data frame certificare.jfif" data-doc-title="Introduction to Spark SQL and DataFrames — LinkedIn Learning">
+                        <div class="cert-top">
+                            <span class="cert-issuer-badge">LinkedIn</span>
+                            <span class="cert-date">Feb 2025</span>
+                        </div>
+                        <h3 class="cert-title">Spark SQL &amp; DataFrames</h3>
+                        <p class="cert-note">Distributed query optimization &amp; big data processing</p>
+                        <span class="cert-cta">Inspect Credential &rarr;</span>
+                    </button>
+
+                    <button type="button" class="cert-card reveal" data-doc-src="images/SQL Essentials training Certificate.jfif" data-doc-title="SQL Essential Training — LinkedIn Learning">
+                        <div class="cert-top">
+                            <span class="cert-issuer-badge">LinkedIn</span>
+                            <span class="cert-date">Jan 2025</span>
+                        </div>
+                        <h3 class="cert-title">SQL Essential Training</h3>
+                        <p class="cert-note">Relational querying, window functions &amp; schema design</p>
+                        <span class="cert-cta">Inspect Credential &rarr;</span>
+                    </button>
+
+                    <button type="button" class="cert-card reveal" data-doc-src="images/EDA Tool development certificate.png" data-doc-title="EDA Tool Development & RF Communication — RVCE">
+                        <div class="cert-top">
+                            <span class="cert-issuer-badge">RVCE</span>
+                            <span class="cert-date">Oct 2024</span>
+                        </div>
+                        <h3 class="cert-title">EDA Tool Development</h3>
+                        <p class="cert-note">RF communication, DCS &amp; electronic design automation</p>
+                        <span class="cert-cta">Inspect Credential &rarr;</span>
+                    </button>
+
+                    <button type="button" class="cert-card reveal" data-doc-src="images/Datascience for Engineers.pdf" data-doc-title="Data Science for Engineers — NPTEL (Top 2%)">
+                        <div class="cert-top">
+                            <span class="cert-issuer-badge">NPTEL &middot; Top 2%</span>
+                            <span class="cert-date">Apr 2024</span>
+                        </div>
+                        <h3 class="cert-title">Data Science for Engineers</h3>
+                        <p class="cert-note">Elite + Gold certification, Top 2% nationwide</p>
+                        <span class="cert-cta">Inspect Credential &rarr;</span>
+                    </button>
+
+                    <button type="button" class="cert-card reveal" data-doc-src="images/DSA Certificate.pdf" data-doc-title="Programming, Data Structures and Algorithms using Python — NPTEL">
+                        <div class="cert-top">
+                            <span class="cert-issuer-badge">NPTEL</span>
+                            <span class="cert-date">Sep 2023</span>
+                        </div>
+                        <h3 class="cert-title">DSA in Python</h3>
+                        <p class="cert-note">Algorithmic complexity, trees, graphs &amp; dynamic programming</p>
+                        <span class="cert-cta">Inspect Credential &rarr;</span>
+                    </button>
+
+                    <button type="button" class="cert-card reveal" data-doc-src="images/Supervised_ML.pdf" data-doc-title="Supervised Machine Learning: Regression and Classification — Coursera">
+                        <div class="cert-top">
+                            <span class="cert-issuer-badge">Coursera</span>
+                            <span class="cert-date">Jun 2023</span>
+                        </div>
+                        <h3 class="cert-title">Supervised Machine Learning</h3>
+                        <p class="cert-note">Regression, classification, gradient descent &amp; regularization</p>
+                        <span class="cert-cta">Inspect Credential &rarr;</span>
+                    </button>
+
+                    <button type="button" class="cert-card reveal" data-doc-src="images/PCB Designing Certificate.jfif" data-doc-title="PCB Designing Training — RV College of Engineering">
+                        <div class="cert-top">
+                            <span class="cert-issuer-badge">RVCE</span>
+                            <span class="cert-date">Jun 2023</span>
+                        </div>
+                        <h3 class="cert-title">PCB Design</h3>
+                        <p class="cert-note">Schematic capture, multi-layer routing &amp; DFM checks</p>
+                        <span class="cert-cta">Inspect Credential &rarr;</span>
+                    </button>
+
+                    <button type="button" class="cert-card reveal" data-doc-src="images/Git for Beginners.pdf" data-doc-title="Git for Beginners — Udemy">
+                        <div class="cert-top">
+                            <span class="cert-issuer-badge">Udemy</span>
+                            <span class="cert-date">May 2023</span>
+                        </div>
+                        <h3 class="cert-title">Git for Beginners</h3>
+                        <p class="cert-note">Version control workflows, branching &amp; collaboration</p>
+                        <span class="cert-cta">Inspect Credential &rarr;</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="reveal">
+                        <span class="eyebrow">07 &middot; Correspondence</span>
+                        <h2 class="section-title" style="margin-top: 12px; margin-bottom: 16px;">Let&rsquo;s <em>Connect</em>.</h2>
+                        <p class="section-subtitle">
+                            Open to thoughtful conversations on Data Engineering, Applied AI, VLSI architecture, and product analytics.
+                        </p>
+
+                        <div class="contact-channels">
+                            <a href="mailto:gouthambb999@gmail.com" class="channel-item">
+                                <div class="channel-left">
+                                    <div class="channel-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                    </div>
+                                    <div>
+                                        <span class="channel-label">Direct Email</span>
+                                        <span class="channel-value">gouthambb999@gmail.com</span>
+                                    </div>
+                                </div>
+                                <button type="button" id="copy-email-btn" class="copy-btn">Copy</button>
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/goutham-b-bhandari-49821a1ab" target="_blank" rel="noopener noreferrer" class="channel-item">
+                                <div class="channel-left">
+                                    <div class="channel-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="channel-label">LinkedIn</span>
+                                        <span class="channel-value">Goutham B Bhandari</span>
+                                    </div>
+                                </div>
+                                <span aria-hidden="true">&nearr;</span>
+                            </a>
+
+                            <a href="https://github.com/GOUTHAMBB" target="_blank" rel="noopener noreferrer" class="channel-item">
+                                <div class="channel-left">
+                                    <div class="channel-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="channel-label">GitHub</span>
+                                        <span class="channel-value">github.com/GOUTHAMBB</span>
+                                    </div>
+                                </div>
+                                <span aria-hidden="true">&nearr;</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card reveal">
+                        <form id="feedback-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Your name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company" class="form-label">Organization</label>
+                                    <input type="text" id="company" name="company" class="form-control" placeholder="Company or institution">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="name@company.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" class="form-control" placeholder="Share an opportunity, question, or feedback..."></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit">Send Message</button>
+                            <p id="form-message" class="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>&copy; 2026 Goutham B Bhandari &middot; Bengaluru, India</span>
+            <div class="footer-links">
+                <a href="#home">Back to Top &uarr;</a>
+                <a href="https://www.linkedin.com/in/goutham-b-bhandari-49821a1ab" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/GOUTHAMBB" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Document & Media Lightbox Modal -->
+    <div id="doc-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="doc-modal-title">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 id="doc-modal-title" class="modal-title">Document Preview</h3>
+                <div class="modal-actions">
+                    <a id="doc-modal-external" href="#" target="_blank" rel="noopener noreferrer" class="doc-btn">Open in New Tab &nearr;</a>
+                    <button id="doc-modal-close" class="modal-close" type="button" aria-label="Close Preview">&times;</button>
+                </div>
+            </div>
+            <div id="doc-modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
